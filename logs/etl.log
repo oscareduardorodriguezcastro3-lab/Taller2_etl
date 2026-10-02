@@ -1,0 +1,44 @@
+2026-10-01 20:16:53,620 | INFO | src.pipeline | Inicio del pipeline Kaismart
+2026-10-01 20:16:57,177 | INFO | src.extract.extract_mysql | MySQL: 5000 filas y 17 columnas extraídas
+2026-10-01 20:19:31,907 | INFO | src.pipeline | Inicio del pipeline Kaismart
+2026-10-01 20:19:34,612 | INFO | src.extract.extract_mysql | MySQL: 5000 filas y 17 columnas extraídas
+2026-10-01 20:19:41,024 | INFO | src.extract.extract_excel | Excel: 50000 filas y 14 columnas extraídas
+2026-10-01 20:19:41,767 | INFO | src.transform.common | Silver ventas: 5000 filas originales, 5000 después de duplicados exactos
+2026-10-01 20:19:42,422 | INFO | src.transform.common | Silver logística: 50000 filas originales, 49901 después de duplicados exactos
+2026-10-01 20:19:43,130 | INFO | src.pipeline | Pipeline finalizado: 49901 filas Gold
+2026-10-01 21:35:00,385 | INFO | src.pipeline | Inicio del pipeline Kaismart
+2026-10-01 21:35:00,645 | ERROR | src.extract.extract_mysql | Error extrayendo ventas desde MySQL
+Traceback (most recent call last):
+  File "C:\Users\orodr\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\mysql\connector\connection_cext.py", line 354, in _open_connection
+    self._cmysql.connect(**cnx_kwargs)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^
+_mysql_connector.MySQLInterfaceError: Can't connect to MySQL server on '107.180.112.11:3306' (10013)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\orodr\Documents\ChatGPT\TALLER 2\src\extract\extract_mysql.py", line 26, in extraer_ventas
+    conexion = mysql.connector.connect(
+        host=os.environ["MYSQL_HOST"],
+    ...<3 lines>...
+        database=os.getenv("MYSQL_DATABASE", "clientes"),
+    )
+  File "C:\Users\orodr\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\mysql\connector\pooling.py", line 322, in connect
+    return CMySQLConnection(*args, **kwargs)
+  File "C:\Users\orodr\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\mysql\connector\connection_cext.py", line 142, in __init__
+    self.connect(**kwargs)
+    ~~~~~~~~~~~~^^^^^^^^^^
+  File "C:\Users\orodr\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\mysql\connector\abstracts.py", line 1604, in connect
+    self._open_connection()
+    ~~~~~~~~~~~~~~~~~~~~~^^
+  File "C:\Users\orodr\AppData\Local\Python\pythoncore-3.14-64\Lib\site-packages\mysql\connector\connection_cext.py", line 360, in _open_connection
+    raise get_mysql_exception(
+        err.errno, msg=err.msg, sqlstate=err.sqlstate
+    ) from err
+mysql.connector.errors.DatabaseError: 2003 (HY000): Can't connect to MySQL server on '107.180.112.11:3306' (10013)
+2026-10-01 21:42:16,871 | INFO | src.pipeline | Inicio del pipeline Kaismart
+2026-10-01 21:42:25,126 | INFO | src.extract.extract_mysql | MySQL: 5000 filas y 17 columnas extraídas
+2026-10-01 21:42:31,750 | INFO | src.extract.extract_excel | Excel: 50000 filas y 14 columnas extraídas
+2026-10-01 21:42:32,734 | INFO | src.transform.common | Silver ventas: 5000 filas originales, 5000 después de duplicados exactos
+2026-10-01 21:42:33,403 | INFO | src.transform.common | Silver logística: 50000 filas originales, 49901 después de duplicados exactos
+2026-10-01 21:42:37,032 | INFO | src.pipeline | Pipeline finalizado: 49901 filas Gold

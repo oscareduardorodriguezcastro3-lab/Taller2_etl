@@ -1,0 +1,10 @@
+pandas
+numpy
+mysql-connector-python
+openpyxl
+python-dotenv
+PyYAML
+schedule
+pyarrow
+matplotlib
+pytest

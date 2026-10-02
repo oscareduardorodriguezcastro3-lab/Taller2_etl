@@ -1,0 +1,18 @@
+proyecto:
+  nombre: "Kaismart Solutions S.A.S. - Laboratorio ETL"
+  autores: "Arboleda_Arciniegas_Rodriguez_Vanderbilt"
+
+etl:
+  tabla_ventas: ventas
+  clave_integracion: pedido_id
+  archivo_logistica: kaismart_eventos_logisticos.xlsx
+
+rutas:
+  raw: data/raw
+  bronze: data/bronze
+  silver: data/silver
+  gold: data/gold
+  outputs: outputs
+
+scheduler:
+  hora: "18:00"

@@ -1,0 +1,10 @@
+.env
+__pycache__/
+*.py[cod]
+.venv/
+data/bronze/*
+data/silver/*
+data/gold/*
+outputs/*
+.matplotlib-cache/
+!data/raw/.gitkeep
